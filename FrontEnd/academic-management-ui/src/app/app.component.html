@@ -1,0 +1,14 @@
+<h1>Academic Management System</h1>
+
+<nav *ngIf="auth.isLoggedIn()" class="nav-bar">
+  <a routerLink="/students">Students</a> |
+  <a routerLink="/courses">Courses</a> |
+  <a routerLink="/professors">Professors</a> |
+  <a routerLink="/attendance">Attendance</a> |
+  <a routerLink="/marks">Marks</a> |
+  <button (click)="logout()">Logout</button>
+</nav>
+
+<hr>
+
+<router-outlet></router-outlet>

@@ -1,0 +1,47 @@
+<div class="container">
+
+  <h2>Professors</h2>
+
+  <input placeholder="Name" [(ngModel)]="model.name">
+  <input placeholder="Department" [(ngModel)]="model.department">
+
+  <br><br>
+
+  <button type="button" (click)="saveProfessor()">
+    {{ editing ? 'Update' : 'Add' }} Professor
+  </button>
+
+  @if (editing) {
+    <button type="button" (click)="reset()">Cancel</button>
+  }
+
+  <button type="button" (click)="showTable = !showTable">
+    {{ showTable ? 'Hide' : 'Show' }} Professors
+  </button>
+
+  <hr>
+
+  @if (showTable) {
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Department</th>
+        <th>Actions</th>
+      </tr>
+
+      @for (p of professors; track p.professorID) {
+        <tr>
+          <td>{{ p.professorID }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.department }}</td>
+          <td>
+            <button type="button" (click)="editProfessor(p)">Edit</button>
+            <button type="button" (click)="deleteProfessor(p.professorID)">Delete</button>
+          </td>
+        </tr>
+      }
+    </table>
+  }
+
+</div>

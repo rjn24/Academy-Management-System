@@ -1,0 +1,33 @@
+# =========================
+# OS / Editor
+# =========================
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# =========================
+# Angular (Frontend)
+# =========================
+FrontEnd/academic-management-ui/node_modules/
+FrontEnd/academic-management-ui/dist/
+FrontEnd/academic-management-ui/.angular/
+FrontEnd/academic-management-ui/.cache/
+
+# =========================
+# ASP.NET Core (Backend)
+# =========================
+Backend/AcademicManagementAPI/bin/
+Backend/AcademicManagementAPI/obj/
+Backend/AcademicManagementAPI/.vs/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Environment / Secrets
+# =========================
+appsettings.Development.json
+.env

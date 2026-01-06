@@ -1,0 +1,51 @@
+<div class="container">
+
+  <h2>Courses</h2>
+
+  <input placeholder="Course Code" [(ngModel)]="model.courseCode">
+  <input placeholder="Subject Name" [(ngModel)]="model.subjectName">
+  <input placeholder="Semester" [(ngModel)]="model.semester">
+  <input placeholder="Credits" [(ngModel)]="model.credits">
+
+  <br><br>
+
+  <button type="button" (click)="saveCourse()">
+    {{ editing ? 'Update' : 'Add' }} Course
+  </button>
+
+  @if (editing) {
+    <button type="button" (click)="reset()">Cancel</button>
+  }
+
+  <button type="button" (click)="showTable = !showTable">
+    {{ showTable ? 'Hide' : 'Show' }} Courses
+  </button>
+
+  <hr>
+
+  @if (showTable) {
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Code</th>
+        <th>Subject</th>
+        <th>Semester</th>
+        <th>Credits</th>
+        <th>Actions</th>
+      </tr>
+
+      @for (c of courses; track c.courseCode) {
+        <tr>
+          <td>{{ c.courseCode }}</td>
+          <td>{{ c.subjectName }}</td>
+          <td>{{ c.semester }}</td>
+          <td>{{ c.credits }}</td>
+          <td>
+            <button type="button" (click)="editCourse(c)">Edit</button>
+            <button type="button" (click)="deleteCourse(c.courseCode)">Delete</button>
+          </td>
+        </tr>
+      }
+    </table>
+  }
+
+</div>

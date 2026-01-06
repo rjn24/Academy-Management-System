@@ -1,0 +1,43 @@
+<div class="container">
+
+  <h2>Marks</h2>
+
+  <input placeholder="Student ID" [(ngModel)]="model.studentID">
+  <input placeholder="Course Code" [(ngModel)]="model.courseCode">
+  <input placeholder="Internal Marks" [(ngModel)]="model.internalMarks">
+  <input placeholder="External Marks" [(ngModel)]="model.externalMarks">
+  <input placeholder="Grade" [(ngModel)]="model.grade">
+
+  <br><br>
+
+  <button type="button" (click)="saveMarks()">Add Marks</button>
+
+  <button type="button" (click)="showTable = !showTable">
+    {{ showTable ? 'Hide' : 'Show' }} Marks
+  </button>
+
+  <hr>
+
+  @if (showTable) {
+    <table border="1" cellpadding="6">
+      <tr>
+        <th>Student</th>
+        <th>Course</th>
+        <th>Internal</th>
+        <th>External</th>
+        <th>Grade</th>
+      </tr>
+
+      @for (m of marksList; track m.marksID) {
+        <tr>
+          <td>{{ m.studentID }}</td>
+          <td>{{ m.courseCode }}</td>
+          <td>{{ m.internalMarks }}</td>
+          <td>{{ m.externalMarks }}</td>
+          <td>{{ m.grade }}</td>
+        </tr>
+      }
+    </table>
+  }
+
+</div>
